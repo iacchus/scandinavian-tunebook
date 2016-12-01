@@ -61,11 +61,6 @@ abc_files.sort()
 
 # subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)])
 for abc_file in abc_files:
-    print("Processing file '{}'".format(abc_file))
-    #index_files += "<a href='{0}' data-featherlight='iframe'>{0}</a><br/>\n".format(file)
-    with open(abc_file, 'r') as MYFILE:
-        abc = "".join(list(MYFILE))
-    abc_code_files += "<div class='tune-container' id='{0}'><pre class='abctune'>%%staffsep 27pt\n{1}</pre></div>\n".format(abc_file.split('/')[1].split('.')[0], abc.strip('\n'))
 
 
     script_path = os.getcwd()
@@ -88,6 +83,23 @@ for abc_file in abc_files:
             print("Trying to write mp3 for '{0}'  to '{1}'".format(abc_filename, mp3_filename))
             mp3_command = "timidity -Ow -o - {0} | lame -V2  - {1}".format(midi_output, mp3_output)
             os.system(mp3_command)
+
+    print("Processing file '{}'".format(abc_file))
+    #index_files += "<a href='{0}' data-featherlight='iframe'>{0}</a><br/>\n".format(file)
+
+    data_list = ['abc','midi','mp3']
+    data_string = str()
+
+    for item in data_list:
+        item_filetype = abc_file.replace('abc',item)
+
+        if os.path.isfile(item_filetype):
+            data_string += "<a href='{0}' target='_blank'>{1}</a>".format(item_filetype, item)
+
+    with open(abc_file, 'r') as MYFILE:
+        abc = "".join(list(MYFILE))
+
+    abc_code_files += "<div class='tune-container' id='{0}'><pre class='abctune'>%%staffsep 27pt\n{1}</pre></div><div class='tunedata'>{2}</div>\n".format(abc_file.split('/')[1].split('.')[0], abc.strip('\n'), item_filetype)
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
 with open(index_abcjs_filename,'w') as fd:
