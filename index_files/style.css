@@ -69,3 +69,7 @@ svg * {
     margin: 0 auto;
 }
 
+.data-item {
+	display: inline-block;
+	margin-left: 3px;
+}
