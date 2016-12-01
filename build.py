@@ -94,7 +94,7 @@ for abc_file in abc_files:
         item_filetype = abc_file.replace('abc',item)
 
         if os.path.isfile(item_filetype):
-            data_string += "<span class='data-item-{1}'><a href='{0}' target='_blank'>{1}</a></span>".format(item_filetype, item)
+            data_string += "<span class='data-item data-item-{1}'><a href='{0}' target='_blank'>{1}</a></span>".format(item_filetype, item)
 
     with open(abc_file, 'r') as MYFILE:
         abc = "".join(list(MYFILE))
