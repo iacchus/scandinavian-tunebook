@@ -69,7 +69,7 @@ for abc_file in abc_files:
 
 
     script_path = os.getcwd()
-    abc_filename = abc_file.replace('abc/','', 1)
+    abc_filename = abc_file.replace('abc/','')
     midi_filename = abc_file.replace('abc','mid')
 
     print("Trying to write midi for '{0}'  to '{1}'".format(abc_filename, midi_filename))
