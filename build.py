@@ -3,6 +3,7 @@
 import os
 import glob
 # use os.system("") to do it lil boy
+import subprocess
 
 def return_html(what=""):
     return """
@@ -58,12 +59,19 @@ index_abcjs_filename = "index.html"
 abc_files = glob.glob('abc/*.abc', recursive=False)
 abc_files.sort()
 
+# subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)])
 for abc_file in abc_files:
+    print("Processing file '{}'".format(abc_file))
     #index_files += "<a href='{0}' data-featherlight='iframe'>{0}</a><br/>\n".format(file)
     with open(abc_file, 'r') as MYFILE:
         abc = "".join(list(MYFILE))
     abc_code_files += "<div class='tune-container' id='{0}'><pre class='abctune'>%%staffsep 27pt\n{1}</pre></div>\n".format(abc_file.split('/')[1].split('.')[0], abc.strip('\n'))
 
+    midi_filename = abc_file.replace('abc','midi',-1)
+
+    print('Trying to write midi to {}'.format(midi_filename))
+    midi_command = "abc2midi {0} -o midi/{1}".format(abc_file, midi_filename)
+    subprocess.call(midi_command.split(' '))
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
 with open(index_abcjs_filename,'w') as fd:
