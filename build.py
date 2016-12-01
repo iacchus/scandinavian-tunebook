@@ -99,7 +99,7 @@ for abc_file in abc_files:
     with open(abc_file, 'r') as MYFILE:
         abc = "".join(list(MYFILE))
 
-    abc_code_files += "<div class='tune-container' id='{0}'><pre class='abctune'>%%staffsep 27pt\n{1}</pre></div><div class='tunedata'>{2}</div>\n".format(abc_file.split('/')[1].split('.')[0], abc.strip('\n'), item_filetype)
+    abc_code_files += "<div class='tune-container' id='{0}'><pre class='abctune'>%%staffsep 27pt\n{1}</pre></div><div class='tunedata'>{2}</div>\n".format(abc_file.split('/')[1].split('.')[0], abc.strip('\n'), data_string)
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
 with open(index_abcjs_filename,'w') as fd:
