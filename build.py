@@ -67,7 +67,7 @@ for abc_file in abc_files:
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
 with open(index_abcjs_filename,'w') as fd:
-    fd.write(return_html(abc_code_files.encode('utf-8','surrogateescape')))
+    fd.write(return_html(abc_code_files))
     fd.close()
 
 git_commands = "git add .; git commit -a -m 'autocommit from build.py!'; git push"
