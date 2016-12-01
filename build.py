@@ -87,6 +87,7 @@ for abc_file in abc_files:
         if os.path.isfile(midi_output):
             print("Trying to write mp3 for '{0}'  to '{1}'".format(abc_filename, mp3_filename))
             mp3_command = "timidity -Ow -o - {0} | lame -V2  - {1}".format(midi_output, mp3_output)
+            os.system(mp3_command)
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
 with open(index_abcjs_filename,'w') as fd:
