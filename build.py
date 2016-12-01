@@ -70,7 +70,7 @@ for abc_file in abc_files:
 
     if not os.path.isfile('mp3/{}'.format(mp3_filename)):
 
-        midi_output = "midi/{0}".format(midi_filename)
+        midi_output = "mid/{0}".format(midi_filename)
         mp3_output = "mp3/{0}".format(mp3_filename)
 
         print("Trying to write midi for '{0}'  to '{1}'".format(abc_filename, midi_filename))
@@ -87,7 +87,7 @@ for abc_file in abc_files:
     print("Processing file '{}'".format(abc_file))
     #index_files += "<a href='{0}' data-featherlight='iframe'>{0}</a><br/>\n".format(file)
 
-    data_list = ['abc','midi','mp3']
+    data_list = ['abc','mid','mp3']
     data_string = str()
 
     for item in data_list:
