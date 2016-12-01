@@ -67,7 +67,9 @@ for abc_file in abc_files:
         abc = "".join(list(MYFILE))
     abc_code_files += "<div class='tune-container' id='{0}'><pre class='abctune'>%%staffsep 27pt\n{1}</pre></div>\n".format(abc_file.split('/')[1].split('.')[0], abc.strip('\n'))
 
-    midi_filename = abc_file.replace('abc','midi',-1)
+
+    abc_filename = abc_file.replace('abc/','', 1)
+    midi_filename = abc_file.replace('abc','mid',-1)
 
     print('Trying to write midi to {}'.format(midi_filename))
     midi_command = "abc2midi {0} -o midi/{1}".format(abc_file, midi_filename)
