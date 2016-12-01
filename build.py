@@ -68,11 +68,12 @@ for abc_file in abc_files:
     abc_code_files += "<div class='tune-container' id='{0}'><pre class='abctune'>%%staffsep 27pt\n{1}</pre></div>\n".format(abc_file.split('/')[1].split('.')[0], abc.strip('\n'))
 
 
+    script_path = os.getcwd()
     abc_filename = abc_file.replace('abc/','', 1)
     midi_filename = abc_file.replace('abc','mid')
 
     print("Trying to write midi for '{0}'  to '{1}'".format(abc_filename, midi_filename))
-    midi_command = "abc2midi {0} -o ./midi/{1}".format(abc_file, midi_filename)
+    midi_command = "abc2midi {0} -o {1}/midi/{2}".format(abc_file, script_path, midi_filename)
     subprocess.call(midi_command.split(' '))
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
