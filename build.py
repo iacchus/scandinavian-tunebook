@@ -71,15 +71,22 @@ for abc_file in abc_files:
     script_path = os.getcwd()
     abc_filename = abc_file.split('/')[1]
     midi_filename = abc_filename.replace('abc','mid')
+    mp3_filename = abc_filename.replace('abc','mp3')
 
-    print("Trying to write midi for '{0}'  to '{1}'".format(abc_filename, midi_filename))
-    midi_command = "abc2midi {0} -o midi/{1}".format(abc_file, midi_filename)
-    print(script_path)
-    print(midi_filename)
-    print(abc_file)
+    if not os.path.isfile('mp3/{}'.format(mp3_filename)):
 
-    print(midi_command)
-    subprocess.call(midi_command.split(' '))
+        midi_output = "midi/{0}".format(midi_filename)
+        mp3_output = "mp3/{0}".format(mp3_filename)
+
+        print("Trying to write midi for '{0}'  to '{1}'".format(abc_filename, midi_filename))
+        midi_command = "abc2midi {0} -o {1}".format(abc_file, midi_output)
+
+        print(midi_command)
+        subprocess.call(midi_command.split(' '))
+        
+        if os.path.isfile(midi_output):
+            print("Trying to write mp3 for '{0}'  to '{1}'".format(abc_filename, mp3_filename))
+            mp3_command = "timidity -Ow -o - {0} | lame -V2  - {1}".format(midi_output, mp3_output)
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
 with open(index_abcjs_filename,'w') as fd:
