@@ -19,7 +19,6 @@ V:1
 V:2
 I:repbra 0
 (A,2 |: D4) C4 B,4 
-%Error : Bar 19 is 7/8 not 3/4
 | A,4 E4 G4 | A3B A3G F3G |
 F8 C4 | G8 E4 | F3G F3E D3C |
 A,8 A,4 |1 A,4 A,6 A,2 :|2 A,4 A,8 |: (F4 G4) A4 |
