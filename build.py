@@ -74,6 +74,10 @@ for abc_file in abc_files:
 
     print("Trying to write midi for '{0}'  to '{1}'".format(abc_filename, midi_filename))
     midi_command = "abc2midi -o {0}/midi/{1} {2}".format(script_path, midi_filename, abc_file)
+    print(script_path)
+    print(midi_filename)
+    print(abc_file)
+
     print(midi_command)
     subprocess.call(midi_command.split(' '))
 
