@@ -5,7 +5,7 @@ import glob
 # use os.system("") to do it lil boy
 
 def return_html(what=""):
-    return u"""
+    return """
     <!DOCTYPE html>
     <html lang="en">
       <head>
