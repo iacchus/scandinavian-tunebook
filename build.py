@@ -69,10 +69,10 @@ for abc_file in abc_files:
 
 
     abc_filename = abc_file.replace('abc/','', 1)
-    midi_filename = abc_file.replace('abc','mid',-1)
+    midi_filename = abc_file.replace('abc','mid')
 
-    print("Trying to write midi for '{0}'  to {0}".format(abc_filename, midi_filename))
-    midi_command = "abc2midi {0} -o midi/{1}".format(abc_file, midi_filename)
+    print("Trying to write midi for '{0}'  to '{1}'".format(abc_filename, midi_filename))
+    midi_command = "abc2midi {0} -o ./midi/{1}".format(abc_file, midi_filename)
     subprocess.call(midi_command.split(' '))
 
 print("Writing index file '{}'..".format(index_abcjs_filename))
