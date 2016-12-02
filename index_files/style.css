@@ -69,7 +69,18 @@ svg * {
     margin: 0 auto;
 }
 
+.tunedata {
+	width: 100%;
+	text-align: right;
+}
+
 .data-item {
 	display: inline-block;
-	margin-left: 3px;
+	margin: 0 2px 0 2px;
+}
+
+.data-item-abc:after, .data-item-mid:after
+{
+    content: '|';
+    color: #999;
 }
