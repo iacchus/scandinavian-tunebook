@@ -76,11 +76,11 @@ svg * {
 
 .data-item {
 	display: inline-block;
-	padding: 0 2px 0 2px;
 }
 
 .data-item-abc:after, .data-item-mid:after
 {
     content: '|';
     color: #999;
+    padding: 0 1px 0 1px;
 }
