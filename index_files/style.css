@@ -76,7 +76,7 @@ svg * {
 
 .data-item {
 	display: inline-block;
-	margin: 0 2px 0 2px;
+	padding: 0 2px 0 2px;
 }
 
 .data-item-abc:after, .data-item-mid:after
